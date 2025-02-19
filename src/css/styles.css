@@ -1,0 +1,124 @@
+:root {
+        --Green: #88CB27;
+        --Blue: #13548f;
+        --Beige: #ffffd8b5;
+        --black: #000;
+        --white: #FFFFFF;
+    
+        --Roboto: "Roboto", sans-serif;
+        --Poppins: "Poppins", sans-serif;
+        --Pacifo: "Pacifico", serif;
+}
+
+/* globals  */
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit
+}
+
+body {
+    font-family: var(--Roboto);
+    font-size: 1.6rem;
+    line-height:1.5;
+}
+h1, h2, h3 {
+    font-weight: 700;
+    margin: 2.5rem 0;
+}
+h1 {
+    font-size: 3.5rem;
+}
+h2 {
+    font-size: 2.8rem;
+}
+h3 {
+    font-size: 2.2rem;
+}
+img {
+    max-width: 100%;
+    display:block
+}
+.container {
+    width: min(90%, 120rem);
+    margin: 0 auto
+}
+
+/* utilities classes  */
+
+.centered-text {
+    text-align: center
+}
+
+.centered-margin {
+    margin: 0 auto;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.btn {
+    width: 10rem;
+    height: 4rem;
+    border: none;
+    border-radius: 1rem;
+    background-color: var(--Green);
+    color: var(--black);
+    transition: background-color 0.5s ease-out;
+}
+
+.btn:hover {
+    background-color: var(--Blue);
+    color: var(--white);
+}
+
+.btn-link {
+    height: auto;
+    font-family: var(--Poppins);
+    padding: 1.2rem 1rem;
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+
+
+
+
+/* ANCHOR Media queries for tablet and deskptop */
+
+@media (min-width: 764px) {  /* Media query for tablets */
+
+    /* globals  */
+
+    h1 {
+        font-size: 5rem;
+    }
+    h2 {
+        font-size: 3.5rem;
+    }
+    h3 {
+        font-size: 2.8rem;
+    }
+
+    p {
+        font-size: 2rem;
+    }
+
+    .btn {
+        width: 15rem;
+        height: 4rem;
+    }
+
+    .btn-link {
+        font-size: 3rem;
+    }
+}
