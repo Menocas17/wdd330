@@ -6,4 +6,4 @@ This is the repository of the final project for wdd331, tasty eats is an online 
 
 ## Site Link
 
--https://sleep-outside-p-team.netlify.app/
+-https://tasty-eat-wdd330.netlify.app/
