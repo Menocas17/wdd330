@@ -7,7 +7,6 @@ loadHeaderFooter();
 const displayExploreContent = async () => { // this function will display the content of the explore page
     const exploreSection = qs('#explore-content');
     const recipes = await fetchRandomRecipes(); // fetching the recipes from the API
-    console.log(recipes);
 
     renderRecipeCards(recipes, exploreSection); // rendering the cards with the recipes
 
