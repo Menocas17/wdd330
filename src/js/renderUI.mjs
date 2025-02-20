@@ -47,3 +47,4 @@ export const displayRecipeDetails = async (data) => {
         modal.close();
     });
 }
+

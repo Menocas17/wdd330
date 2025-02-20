@@ -19,3 +19,22 @@ export const fetchRandomRecipes = async () => {
     }
 }
 
+// function to fecth the search paramerters from the API
+
+export const fetchSearchRecipes = async (searchQuery) => {
+
+    try {
+        const response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${searchQuery}&apiKey=${apiKey}`);
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch data');
+        }
+
+        const data = await response.json();
+        return data.results;
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
