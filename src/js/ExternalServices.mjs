@@ -17,7 +17,7 @@ export const fetchRandomRecipes = async () => {
     catch (error) {
         console.log(error);
     }
-}
+};
 
 // function to fecth the search paramerters from the API
 
@@ -36,7 +36,7 @@ export const fetchSearchRecipes = async (searchQuery) => {
     catch (error) {
         console.log(error);
     }
-}
+};
 
 // function to fect the details of a recipe by ID
 
@@ -55,7 +55,7 @@ export const fectchDetailsById = async (id) => {
     catch (error) {
         console.log(error);
     }
-}
+};
 
 // function to fecth the meal plan for the day based on calories target
 
@@ -74,7 +74,7 @@ export const fetchMealPlan = async (calories) => {
         catch (error) {
             console.log(error);
         }
-    }
+    };
 
 // fucntion to fecth bulk info of the recipies from the meal plan 
 
@@ -93,4 +93,5 @@ export const fetchBulkInfo = async (ids) => {
         catch (error) {
             console.log(error);
         }
-    }
+    };
+

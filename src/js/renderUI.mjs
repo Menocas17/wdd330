@@ -18,11 +18,11 @@ export const displayRecipeDetails = async (data) => {
             <div class="intructions-list">
                 ${data.instructions}
             </div>
-        `
+        `;
     } else {
         instructions = `
             <p class = "intructions">${data.instructions}</p>
-        `
+        `;
     }
 
     modal.innerHTML = `
@@ -62,7 +62,7 @@ export const displayLocalRecipesDetails = async (recipe) => {
     <p class="intructions-p">
         ${recipe.instructions}
     </p>
-`
+`;
 
     modal.innerHTML = `
 
@@ -90,19 +90,19 @@ export const displayLocalRecipesDetails = async (recipe) => {
 
     const delteRecipeBtn = qs('#deleteRecipe');
     delteRecipeBtn.addEventListener('click', ()=> { // adding the functionality to delete to the button 
-        let recipies = getLocalStorage('recipies')
-        const index = recipies.findIndex(item => item.recipe_name == recipe.recipe_name) // finding the recipe index by looking for the recipe name
+        let recipies = getLocalStorage('recipies');
+        const index = recipies.findIndex(item => item.recipe_name == recipe.recipe_name); // finding the recipe index by looking for the recipe name
 
         if (index !== -1) {
-            recipies.splice(index, 1)
+            recipies.splice(index, 1);
         }
 
-        localStorage.clear()
+        localStorage.clear();
         setLocalStorage('recipies', recipies); // sacwe the recipe again the local storage
-        location.reload() // reload the page
-    })
+        location.reload(); // reload the page
+    });
 
-}
+};
 
 // function to render local recipes cards
 
@@ -116,7 +116,7 @@ export const renderLocalRecipeCards = async (parenElement) => {
         `;
         parenElement.insertAdjacentHTML('beforeend', card);
     });
-}
+};
 
 // function to render the cards with the recipes 
 
@@ -129,4 +129,4 @@ export const renderRecipeCards = (recipes, parentElement) => {
         `;
         parentElement.insertAdjacentHTML('beforeend', card);
     });
-}
+};

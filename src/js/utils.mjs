@@ -57,18 +57,18 @@ export function addCardEventListeners(data, cards, callback) {
                     .then(recipeExtendedData => {
                         callback(recipeExtendedData);
                     })
-                    .catch(error => console.error("Error fetching recipe details:", error));
+                    .catch(error => console.error('Error fetching recipe details:', error));
                 } else {
                     callback(recipeData);
                 }
             } else {
-                const recipeName = card.dataset.name
-                const recipeData = data.find(recipe => recipe.recipe_name == recipeName)
-                callback(recipeData)
+                const recipeName = card.dataset.name;
+                const recipeData = data.find(recipe => recipe.recipe_name == recipeName);
+                callback(recipeData);
             }
 
             
-        })
+        });
     });
 
 }
@@ -94,3 +94,4 @@ export function setLocalStorage(key, data) {
     myRecipies.push(data);
     localStorage.setItem(key, JSON.stringify(myRecipies));
 }
+

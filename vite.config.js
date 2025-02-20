@@ -13,7 +13,10 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'src/index.html'),
-        explore: resolve(__dirname, 'src/explore/explore.html'),
+        explore: resolve(__dirname, 'src/explore/index.html'),
+        my_recipies: resolve(__dirname, 'src/my_recipies/index.html'),
+        search: resolve(__dirname, 'src/search/index.html'),
+        nutrition: resolve(__dirname, 'src/nutrition/index.html'),
 
       },
     },

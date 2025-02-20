@@ -13,8 +13,8 @@ const searchRecipe = async () => { // this function will get the search query fr
         const recipes = await fetchSearchRecipes(query);    // fetching the recipes from the API
         renderRecipeCards(recipes, recipiesContainer);
         const cards = selectAllCards();
-        addCardEventListeners(recipes, cards, displayRecipeDetails) // adding the event listener to the cards to display the recipe details when clicked
+        addCardEventListeners(recipes, cards, displayRecipeDetails); // adding the event listener to the cards to display the recipe details when clicked
     }
-}
+};
 
 searchRecipe(); // runs the function to display the search results
