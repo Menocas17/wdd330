@@ -24,7 +24,7 @@ export const fetchRandomRecipes = async () => {
 export const fetchSearchRecipes = async (searchQuery) => {
 
     try {
-        const response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${searchQuery}&apiKey=${apiKey}`);
+        const response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${searchQuery}&addRecipeInformation=true&apiKey=${apiKey}`);
 
         if (!response.ok) {
             throw new Error('Failed to fetch data');
@@ -32,6 +32,25 @@ export const fetchSearchRecipes = async (searchQuery) => {
 
         const data = await response.json();
         return data.results;
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
+// function to fect the details of a recipe by ID
+
+export const fectchDetailsById = async (id) => {
+
+    try {
+        const response = await fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${apiKey}`);
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch data');
+        }
+
+        const data = await response.json();
+        return data;
     }
     catch (error) {
         console.log(error);

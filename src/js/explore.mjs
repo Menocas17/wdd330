@@ -1,6 +1,6 @@
-import {loadHeaderFooter, qs} from './utils.mjs';
+import {loadHeaderFooter, qs, addCardEventListeners, selectAllCards} from './utils.mjs';
 import {fetchRandomRecipes} from './ExternalServices.mjs';
-import {displayRecipeDetails} from './renderUI.mjs';
+import {displayRecipeDetails, renderRecipeCards} from './renderUI.mjs';
 
 loadHeaderFooter();
 
@@ -9,25 +9,10 @@ const displayExploreContent = async () => { // this function will display the co
     const recipes = await fetchRandomRecipes(); // fetching the recipes from the API
     console.log(recipes);
 
-    recipes.forEach(recipe => { 
-        const card = `
-            <article class="explore-card" data-id="${recipe.id}" style="--bg-image: url(${recipe.image});">
-            <h2 class="explore-card-content">${recipe.title}</h2>
-            </article>
-        `;
-        exploreSection.insertAdjacentHTML('beforeend', card);
-    });
+    renderRecipeCards(recipes, exploreSection); // rendering the cards with the recipes
 
-    const cards = document.querySelectorAll('.explore-card');
-    console.log(cards);
-    cards.forEach(card => {
-    card.addEventListener('click', () => {
-        const recipeId = card.dataset.id;
-        const recipeData = recipes.find(recipe => recipe.id == recipeId); // filter the data of the recipe that was clicked
-        console.log(recipeData);
-        displayRecipeDetails(recipeData);
-    })
-});
+    const cards = selectAllCards(); // selecting all the cards available in the page
+    addCardEventListeners(recipes, cards, displayRecipeDetails); // adding the event listener to the cards to display the recipe details when clicked
 };
 displayExploreContent(); // runs the functions to display the explore content
 

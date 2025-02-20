@@ -48,3 +48,15 @@ export const displayRecipeDetails = async (data) => {
     });
 }
 
+// function to render the cards with the recipes 
+
+export const renderRecipeCards = (recipes, parentElement) => {
+    recipes.forEach(recipe => { 
+        const card = `
+            <article class="explore-card" data-id="${recipe.id}" style="--bg-image: url(${recipe.image});">
+            <h2 class="explore-card-content">${recipe.title}</h2>
+            </article>
+        `;
+        parentElement.insertAdjacentHTML('beforeend', card);
+    });
+}
