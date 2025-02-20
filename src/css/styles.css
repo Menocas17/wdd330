@@ -10,7 +10,10 @@
         --Pacifo: "Pacifico", serif;
 }
 
-/* globals  */
+
+/*=============================================
+=            globals            =
+=============================================*/  /* ANCHOR Global styles */
 
 html {
     box-sizing: border-box;
@@ -31,7 +34,7 @@ h1, h2, h3 {
     margin: 2.5rem 0;
 }
 h1 {
-    font-size: 3.5rem;
+    font-size: 3.4rem;
 }
 h2 {
     font-size: 2.8rem;
@@ -48,7 +51,13 @@ img {
     margin: 0 auto
 }
 
-/* utilities classes  */
+
+/*----------  utility classes  ----------*/
+
+.ul-normalize {
+    list-style-type: none;
+    padding-left: 0;
+}
 
 .centered-text {
     text-align: center
@@ -89,15 +98,327 @@ img {
     text-align: center;
 }
 
+.box-shadow {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.55);
+}
+.main-bg {
+    background-color: var(--Beige);
+}
+
+
+/*=====  End of globals  ======*/
+
+
+/*=============================================
+=            Styiling the header partial            =   
+=============================================*//* ANCHOR Header partial styles */
+
+header {
+    display: flex;
+    flex-direction: column;
+    padding-top: 3rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--white);
+}
+
+.logo {
+    height: 12rem;
+    width: 12rem;
+    margin-left: 2rem;
+}
+
+header div {
+    margin-top: 2rem;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.menu {
+    display: grid;
+    grid-template-rows: 0fr;
+    height: 0;
+    transition: grid-template-rows 0.6s ease-out, height 0.6s ease-out;
+}
+
+.menu.open {
+    grid-template-rows: 1fr;
+    height: 24.6rem;
+}
+
+.nav-menu a {
+    position: relative;
+    text-decoration: none;
+    color: var(--black);
+    font-size: 2rem;
+    font-family: var(--Poppins);
+    
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    height: .3rem;
+    left: 50%;
+    bottom: -.5rem;
+    width: 0;
+    background-color: var(--Blue);
+    transition: width .3s ease, left .3s ease;
+    transform: translateX(-50%);
+
+}
+
+.nav-menu a:hover::after{
+    width: 100%;
+    left: 50%; 
+    transform: translateX(-50%);
+}
+
+.nav-menu a.active::after {
+    width: 100%;
+}
+
+
+/*----------  styling the ham button  ----------*/
+
+
+#ham-menu {
+    background: none;
+    border: none;
+    position: absolute;
+    top: 4rem;
+    right: 2rem;
+    color: var(--Blue);
+    font-size: 6rem;
+
+}
+
+#ham-menu:before {
+    content: "☰";
+}
+
+#ham-menu.open::before {
+    content: 'X';
+    font-size: 6rem;
+}
+
+/*=====  End of Styiling the header partial  ======*/
+
+
+/*=============================================
+=            Styling the footer            =
+=============================================*/ /* ANCHOR Footer styles */
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 2rem;
+}
+
+
+/*----------  styling the form inside the footer  ----------*/
 
 
 
+.form {
+    padding: 1rem;
+    text-align: center;
+}
 
-/* ANCHOR Media queries for tablet and deskptop */
+.form p:first-of-type {
+    font-family: var(--Pacifo);
+    font-size: 3rem;
+    margin-bottom: 0;
+}
 
-@media (min-width: 764px) {  /* Media query for tablets */
+.form p:last-of-type {
+    font-family: var(--Poppins);
+    font-size: 2.8rem;
+    margin-top: 0;
+}
 
-    /* globals  */
+input[type=text], input[type=email] {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    width: 60%;
+    text-align: center;
+    height: 5rem;
+    border: 1px solid black;
+}
+
+input[type=submit] {
+    margin-top: 2rem;
+}
+
+input::placeholder {
+    text-align: center;
+    font-family: var(--Poppins);
+}
+
+/*----------  styling the menu links in the footer  ----------*/
+
+.menu-footer {
+    flex-direction: column;
+    gap: 1rem;
+    
+}
+
+.menu-footer a {
+    transition: transform 0.3s ease;
+}
+
+
+.menu-footer a::after {
+    content: none; 
+    width: 0;
+    height: 0;
+    background: none; 
+    position: static; 
+    transition: none; 
+}
+
+/*----------  styling the social media links in the footer  ----------*/
+
+
+.social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.social p {
+    font-family: var(--Poppins);
+    font-weight: 700;
+    font-size: 3rem;
+}
+
+.social-media-links {
+    display: flex;
+    padding: 2rem;
+    border-radius: .5rem;
+    background-color: #F2F2F2;
+    gap: 2rem;
+}
+
+
+/*=====  End of Styling the footer  ======*/
+
+
+/*=============================================
+=            Styling the home page            =
+=============================================*/ /* ANCHOR Home page styles */
+
+
+/*----------  styling the hero section   ----------*/
+
+
+
+.hero {  /* Adding the hero background image */
+    height: 49rem;
+    background-image: url(../images/tasty-hero/hero.webp );
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+
+    position: relative;
+}
+
+.content-hero {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.501);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+    gap: 3rem;
+}
+
+@keyframes fadeIn { /* animation for the text in the hero section 8 */
+    to {
+      opacity: 1; 
+    }
+  } 
+
+.content-hero h1 {
+    font-family: var(--Pacifo);
+    color: var(--white);
+    transition: transform 0.3s ease;
+    opacity: 0; 
+    animation: fadeIn 2s ease-in forwards; 
+
+}
+
+.content-hero a {
+    margin-bottom: 2rem;
+}
+
+
+/*----------  Styling the main section (home)  ----------*/
+
+.content-home {
+    padding: 3rem 0 5rem 0;
+}
+
+.content-home h2 {
+    font-family: var(--Pacifo);
+    text-align: center;
+}
+
+.content-home h2:last-of-type {
+    width: 80%;
+    margin: 5rem auto 2rem auto;
+}
+
+.content-home img {
+    width: 32rem;
+    height: 22rem;
+    border-radius: 1rem;
+}
+
+.section-home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.section-home div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*=====  End of Styling the home page  ======*/
+
+
+/*=============================================
+=            Media queries           =
+=============================================*/
+
+
+
+/*----------  media queries for tablets  ----------*/ /* SECTION Tablet Media queries */
+
+@media (min-width: 764px) {  
+
+    
+    /*----------  globals  ----------*/ /* ANCHOR Global 764 */
+    
+    
 
     h1 {
         font-size: 5rem;
@@ -120,5 +441,193 @@ img {
 
     .btn-link {
         font-size: 3rem;
+        height: auto;
+    }
+
+    
+    /*----------  header  ----------*/ /* ANCHOR Header 764 */
+    #ham-menu {
+        display: none;
+    }
+
+    header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        padding: 1rem 0;
+    }
+    
+    .menu {
+        grid-template-rows: 1fr;
+        height: auto;
+        transition: none;
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-direction: row;
+        gap: 4rem;
+    }
+
+    .nav-menu a {
+        font-size: 2.5rem;
+    }
+
+    .nav-menu a::after {
+        bottom: -0.5rem;
+        height: 0.7rem;
+    }
+
+    .logo {
+        width: 18rem;
+        height: 18rem;
+    }
+
+    .menu-footer {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .menu.open {
+        height: auto;
+    }
+
+    
+    /*----------  footer  ----------*/ /* ANCHOR Footer 764 */
+    footer {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    
+    
+    /*----------  home page  ----------*/  /* ANCHOR Home page 764 */
+    
+    .hero {
+        height: 55rem;
+    }
+
+    .content-hero {
+        justify-content: center;
+    }
+
+    .content-hero h1 {
+       font-size: 4rem;
+       margin-top: 18rem;
+       
+    }
+
+
+
+    .content-home h2:first-of-type, .content-home h2:last-of-type {
+        margin-bottom:6rem;
+        margin-top: 5rem;
+        font-size: 4.8rem;
+    }
+
+    .content-home p {
+        margin-bottom: 4rem;
+    }
+
+    .content-home img {
+        width: 40rem;
+        height: 30rem;
+      
+    }
+
+    .section-home {
+        flex-direction: row;
+        gap: 8rem;
+        text-align: center;
+        padding: 2rem;
+    }
+    
+    .search-home  {
+        flex-direction: row-reverse;
+    }
+
+    #explore-title {
+        font-size: 5rem;
+    }
+
+
+}
+
+
+/*----------  large screens medias  ----------*/
+
+
+
+@media (min-width: 1000px) {  /* ANCHOR 1000px media query */
+    .nav-menu {
+        gap: 7rem;
+    }
+
+    .menu-footer {
+        gap: 1rem;
+    }
+
+    .btn-explore {
+        right: 9rem;
+        
+    }
+
+    .recipies-form {
+        width: 40rem;
+    }
+
+    .myrecipies-card {
+        width: 40rem;
+    }
+
+    .search-bar input {
+        width: 40%;
     }
 }
+
+@media (min-width: 1200px) {   /* ANCHOR 1200px media query */
+ 
+    .content-hero h1 {
+        margin-top: 12rem;
+        font-size: 5rem;
+    }
+
+    .btn-explore {
+        right: 17rem;
+    
+    }
+
+    .recipies-form {
+        width: 50rem;
+    }
+
+    .myrecipies-card {
+        width: 50rem;
+    }
+
+    .img-recipies-bg {
+        top: 2rem;
+        right: 3rem;
+        width: 22rem;
+    }
+
+    .search-bar input {
+        width: 35%;
+    }
+}
+
+@media (min-width: 1800px) {  /* ANCHOR 1800px media query */
+    .img-recipies-bg{
+        top: 0rem;
+        right: 23rem;
+        width: 26rem;
+    }
+}
+
+
+/*=====  End of Media queries   ======*/ /* !SECTION End of media queries */
+
+
+
+
+
