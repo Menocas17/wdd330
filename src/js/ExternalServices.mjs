@@ -1,4 +1,4 @@
-const apiKey = '7fcf5e52a4604859bf42a2986fec3965';
+const apiKey = '0531dafbb0974791a0435b71ce945432';
 
 // creating the function to get the recipes for the explore page 
 
