@@ -1,4 +1,4 @@
-import { qs } from './utils.mjs';
+import { getLocalStorage, qs, setLocalStorage} from './utils.mjs';
 
 // function to displau the recipe details in a modal 
 
@@ -34,17 +34,87 @@ export const displayRecipeDetails = async (data) => {
 
     <div class="container modal-container">
         <h4>Ingredients</h4>
-        <ul class="ul-li-styled">
+        <ul class="ul-normalize">
             ${ingredientsList}
         </ul>
         <h4>Instructions</h4>
-        ${instructions}
+        <div class="instructions">
+            ${instructions}
+        </div>
+        
     </div>
     `;
 
     modal.showModal();
     qs('#closeModal').addEventListener('click', () => {
         modal.close();
+    });
+};
+
+// function to displat the local recipe details in a modal
+
+export const displayLocalRecipesDetails = async (recipe) => {
+    const modal = qs('#meal-details-modal');
+    const ingredientsList = recipe.ingredients.map(ingredient => {
+        return `<li>${ingredient}</li>`;
+    }).join('');
+    const  instructions = `
+    <p class="intructions-p">
+        ${recipe.instructions}
+    </p>
+`
+
+    modal.innerHTML = `
+
+    <h3>${recipe.recipe_name}</h3>
+    <button id="closeModal">X</button>
+
+
+    <div class="container modal-container">
+        <h4>Ingredients</h4>
+        <ul class="ul-normalize">
+            ${ingredientsList}
+        </ul>
+        <h4>Instructions</h4>
+        ${instructions}
+
+        <button id="deleteRecipe" class="btn delete-button">Delete Recipe</button>
+    </div>
+    `;
+
+    modal.showModal();
+    qs('#closeModal').addEventListener('click', () => {
+        modal.close();
+    });
+
+
+    const delteRecipeBtn = qs('#deleteRecipe');
+    delteRecipeBtn.addEventListener('click', ()=> { // adding the functionality to delete to the button 
+        let recipies = getLocalStorage('recipies')
+        const index = recipies.findIndex(item => item.recipe_name == recipe.recipe_name) // finding the recipe index by looking for the recipe name
+
+        if (index !== -1) {
+            recipies.splice(index, 1)
+        }
+
+        localStorage.clear()
+        setLocalStorage('recipies', recipies); // sacwe the recipe again the local storage
+        location.reload() // reload the page
+    })
+
+}
+
+// function to render local recipes cards
+
+export const renderLocalRecipeCards = async (parenElement) => {
+    const recipes = getLocalStorage('recipies');
+    recipes.forEach(recipe => { 
+        const card = `
+            <article class="explore-card myrecipies-card" data-name="${recipe.recipe_name}">
+            <h2 class="explore-card-content">${recipe.recipe_name}</h2>
+            </article>
+        `;
+        parenElement.insertAdjacentHTML('beforeend', card);
     });
 }
 

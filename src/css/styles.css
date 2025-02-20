@@ -373,12 +373,12 @@ input::placeholder {
     padding: 3rem 0 5rem 0;
 }
 
-.content-home h2 {
+.home-h2 {
     font-family: var(--Pacifo);
     text-align: center;
 }
 
-.content-home h2:last-of-type {
+.home-h2:last-of-type {
     width: 80%;
     margin: 5rem auto 2rem auto;
 }
@@ -400,6 +400,30 @@ input::placeholder {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+
+/*----------  styling the meal plan section  ----------*/ /*ANCHOR TEMPORAL */
+
+.meal-plan-section input{
+    text-align: center;
+    display: block;
+    border-radius: 2rem;
+    border: 1px solid;
+    height: 4rem;
+    width: 40%;
+
+}
+
+.meal-plan-section form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.home-meals {
+    margin-top: 4rem;
 }
 
 /*=====  End of Styling the home page  ======*/
@@ -472,47 +496,7 @@ input::placeholder {
 }
 
 
-.loading-screen {
-    display: none; 
-    z-index: 1000;
-    position: fixed; 
-    left: 50%; 
-    top: 50%; 
-    width: 100%;
-    height: 100%;
-    justify-content: center; 
-    align-items: center;
-    transform: translate(-50%, -45%); 
-}
 
-/* Loader Styles */
-.loader {
-    text-align: center; 
-}
-
-.spinner {
-    width: 60px;
-    height: 60px;
-    border: 8px solid #f3f3f3; 
-    border-top: 8px solid #3498db; 
-    border-radius: 50%; 
-    animation: spin 1s linear infinite; 
-    margin: 0 auto; 
-}
-
-/* Spin Animation */
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Loading Text Styles */
-.loading-screen h2 {
-    margin-top: 20px; 
-    color: #3498db; 
-    font-family: var(--Pacifo); 
-    font-size: 24px; 
-}
 
 ::backdrop {
     background-color: rgba(0, 0, 0, 0.5);
@@ -556,9 +540,8 @@ dialog img {
     text-align: left;
 }
 
-.iframe {
-    width: 100%;
-    margin-bottom: 5rem;
+.instructions ol {
+    list-style: none;
 }
 
 .btn-modal {
@@ -653,6 +636,123 @@ dialog img {
 }
 
 /*=====  End of styling the search page  ======*/
+
+
+/*=============================================
+=            Styling the myRecipies page            =
+=============================================*/ /* ANCHOR MyRecipies page styles */
+.myrecipies-main {
+    text-align: center;
+    background-color: var(--Beige);
+    padding: 5rem 0rem;
+}
+
+
+.recipies-form {
+    margin-bottom: 8rem;
+    padding: 5rem 1rem;
+    border-radius: 1rem;
+    border: 2px solid var(--Green);
+    max-width: 40rem;
+    margin: 0 auto;
+
+
+}
+
+label[for="listOfIngredients"] {
+    margin-top: 3.5rem;
+}
+
+.recipies-form label {
+    display: block;
+    text-align: left;
+    padding-left: 3rem;
+    margin-bottom: 2rem;
+}
+
+
+
+.recipies-form input[type=text] {
+    display: block;
+    width: 80%;
+    height: 3rem;
+    border-radius: .5rem;
+    border: 1px solid #999;
+    border-left-width: 4px;
+    padding: .4rem;
+    margin: .3rem 0 1rem 0;
+}
+
+.recipies-form textarea {
+    display: block;
+    border-radius: .5rem;
+    border: 1px solid #999;
+    padding: .4rem;
+    margin-top: .3rem;
+    width: 80%;
+    height: 15rem;
+}
+
+.recipies-form input:required {
+    border-left-color: var(--Blue);
+}
+
+.recipies-form input:focus {
+    border-left-color: black; 
+    outline: none;
+}
+
+.btn-recipies-form {
+    width: 12rem;
+}
+
+.btn-recipies-form:last-of-type {
+    margin-top: 5rem;
+}
+
+.recipies-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.myrecipies-card {
+    background-image: url(../images/my-recipies-img/professional-chef-preparing-food-kitchen_23-2149727977.webp);
+    height: 12rem;
+}
+
+.new-recipie {
+    display: none;
+}
+
+.myrecipies-title {
+    font-family: var(--Pacifo);
+    margin-bottom:  8rem;
+    font-size: 4rem;
+    
+}
+
+.my-recipies {
+    margin-bottom: 5rem;
+}
+
+.img-recipies-bg {
+    display: none;
+}
+#deleteRecipe{
+    background-color: rgb(197, 64, 64);
+    color: var(--white);
+    transition: transform .3s ease-in;
+}
+
+#deleteRecipe:hover {
+    transform: scale(1.10);
+}
+
+
+
+/*=====  End of Styling the myRecipies page  ======*/
 
 
 
@@ -770,7 +870,7 @@ dialog img {
 
 
 
-    .content-home h2:first-of-type, .content-home h2:last-of-type {
+    .home-h2 {
         margin-bottom:6rem;
         margin-top: 5rem;
         font-size: 4.8rem;
@@ -798,7 +898,7 @@ dialog img {
     }
 
     
-    /*----------  explore page  ----------*/
+    /*----------  explore page  ----------*/ /* ANCHOR Explore page 764 */
     
     .explore-content {
         display: grid;
@@ -806,6 +906,11 @@ dialog img {
         gap: 3rem;
         justify-items: center;
         height: auto;  
+    }
+
+    .home-meals {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 3fr));
+        gap: 2rem;
     }
 
     .explore-main {
@@ -843,7 +948,49 @@ dialog img {
 
     }
 
+    /*----------  styling the myrecipes page  ----------*/ /* ANCHOR Myrecipes page 764 */
+.content-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: flex-start;
 }
+
+.recipies-form {
+    width: 33rem;
+}
+
+.recipies-form input[type=text], .recipies-form textarea {
+    width: 90%;
+}
+
+.myrecipies-card {
+    width: 35rem;
+}
+
+.myrecipies-title {
+    font-size: 5rem;
+}
+
+.myrecipies-main{
+    position: relative;
+}
+
+
+.img-recipies-bg{
+    display: block;
+    position: absolute;
+    top: 3rem;
+    right: 0rem;
+    width: 20rem;
+    transform: rotate(8deg);
+}
+
+
+}
+
+
+
 
 
 /*----------  large screens medias  ----------*/

@@ -30,7 +30,20 @@
   <main class="main-bg">
 
       <div class="container content-home">
-          <h2>Create your own recipies!</h2>
+        <h2 class="home-h2">Get your meal plan for the day! 🍽️</h2>
+        <section class="meal-plan-section">
+            <form action="/index.html" class="home-form" >
+                <input type="tel" id="search-bar" placeholder="Target calories" name="targetCalories" pattern="\d*" required title="Please enter the target NUMBER of calories">
+                <button class="btn btn-search" id="search-button">Generate</button>
+            </form>
+
+            <div class="explore-content container home-meals" id="recipies-container">
+
+            </div>
+
+        </section>
+
+          <h2 class="home-h2">Create your own recipies! 🍔</h2>
 
           <section class="recipies-home section-home">
               <img src="images/tasty-hero/recipies-home.webp" alt="A person cooking" width="500" height="300" loading="lazy">
@@ -41,7 +54,7 @@
               </div>
           </section>
 
-          <h2>Looking for an specific recipe? 🔍</h2>
+          <h2 class="home-h2">Looking for an specific recipe? 🔍</h2>
 
           <section class="search-home section-home">
               <img src="/images/tasty-hero/search-home.webp" alt="A person recipies on internet" width="500" height="300" loading="lazy">
@@ -55,7 +68,7 @@
 
 
       </div>
-      
+      <dialog id="meal-details-modal"></dialog>
   </main>
 
   <footer class="box-shadow" id="footer"></footer>

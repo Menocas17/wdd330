@@ -57,3 +57,40 @@ export const fectchDetailsById = async (id) => {
     }
 }
 
+// function to fecth the meal plan for the day based on calories target
+
+export const fetchMealPlan = async (calories) => {
+    
+        try {
+            const response = await fetch(`https://api.spoonacular.com/mealplanner/generate?timeFrame=day&targetCalories=${calories}&apiKey=${apiKey}`);
+    
+            if (!response.ok) {
+                throw new Error('Failed to fetch data');
+            }
+    
+            const data = await response.json();
+            return data;
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+
+// fucntion to fecth bulk info of the recipies from the meal plan 
+
+export const fetchBulkInfo = async (ids) => {
+    
+        try {
+            const response = await fetch(`https://api.spoonacular.com/recipes/informationBulk?ids=${ids}&apiKey=${apiKey}`);
+    
+            if (!response.ok) {
+                throw new Error('Failed to fetch data');
+            }
+    
+            const data = await response.json();
+            return data;
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }

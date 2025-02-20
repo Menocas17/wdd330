@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover delicious and easy-to-follow meal recipes for every occasion. From quick weeknight dinners to gourmet dishes, explore a variety of flavors and cuisines to elevate your cooking. Perfect for home chefs of all levels!">
+    <meta name="author" content="Rodolfo Menocal">
+    <title> Search | Tasty Eats </title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="../js/myRecipies.js" type="module" defer></script>
+</head>
+<body>
+
+  <header class="box-shadow" id="header"></header>
+  <main class="myrecipies-main">
+
+    <h1 class="myrecipies-title">Create and Enjoy!</h1>
+    <div class="content-container container">
+        <section id="my-recipies" class="my-recipies">
+
+            <h2>Your Recipies!</h2>
+
+            <div id="recipies-container" class="recipies-container">
+
+                <article class="explore-card myrecipies-card" id="new-recipie">
+                    <h2 class="explore-card-content placeholder-card">Enter new Recipies</h2>
+                </article>
+
+            </div>
+
+        </section>
+
+        <section class="add-recipie">
+            
+            <h2>Add your Recipie</h2>
+
+            <form id="recipeForm" class="recipies-form" name="recipeForm">
+                <label>Recipe Name: <input type="text" id="recipeName" name="recipe_name"></label>
+                
+            
+                <label>Ingredient: <input type="text" id="ingredient"></label>
+                
+                <button type="button" id="addIngredient" class="btn btn-recipies-form">Add Ingredient</button>
+                
+                <label for="listOfIngredients"> Ingredients List: <textarea name="ingredients" id="listOfIngredients" cols="30" rows="10" readonly></textarea></label>
+                
+                <label >Instructions: <textarea id="instructions" name="instructions"></textarea></label>
+    
+                <button type="submit" class="btn btn-recipies-form">Save Recipe</button>
+            </form>
+
+            
+        </section>
+    </div>
+
+    <img src="/images/my-recipies-img/chef.webp" alt="" class="img-recipies-bg" loading="lazy">
+
+    <dialog id="meal-details-modal"></dialog>
+    
+  </main>
+
+  <footer class="box-shadow" id="footer"></footer>
+    
+</body>
+</html>
